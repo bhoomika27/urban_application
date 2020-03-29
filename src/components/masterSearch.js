@@ -6,6 +6,7 @@ import ItemsCarousel from 'react-items-carousel';
 import axios from 'axios';
 import MyFilteringComponent from './filterComponent';
 import './urban.css'
+import { Link }             from "react-router-dom";
 
 class History extends PureComponent {
     constructor(props) {
@@ -63,12 +64,15 @@ class History extends PureComponent {
          {this.props.todoApp.items != undefined &&                
                 Object.values(this.props.todoApp.items).map((user, i) => {
                     console.log(user)
-                return (<div style={{ height: 200, background: '#333' , color:'#fff' }} key={i} value={user.id}>
+                return (
+                    <Link to={'/detail?id='+user.id} >
+                        <div style={{ height: 200, background: '#333' , color:'#fff' }} key={i}  value={user.id}>
                    
                     <img src="../images/sampleImg.png" alt="Renting House" height="50%" width="100%"/>
                    <label className='priceLbl'>{user.price}<span style={{ fontWeight:'normal',color: '#ADADAD',fontSize:12  }} >/YEAR</span></label> <br/>
                     {user.address.appartment}.{user.neighbourhood}
-                    </div>)
+                    </div>
+                    </Link>)
                     })
                     }
       </ItemsCarousel>

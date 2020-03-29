@@ -3,8 +3,8 @@
       {
         "id": 1,      
         "neighbourhood": "Dubai Marina",
-        "title":"stylish 1BR appartment",
-        "description":"this is one bedroom",
+        "title":"Stylish 1BR appartment with kitchen",
+        "description":"This is one bedroom",
         "price": "900,000AED",
         "address": {
           "street": "Kulas Light",
@@ -35,7 +35,7 @@
       {
         "id": 2,      
         "neighbourhood": "Downtown",
-        "title":"stylish 1BR appartment",
+        "title":"Stylish 1BR appartment with kitchen",
         "description":"this is one bedroom",
         "price": "180,000AED",
         "address": {

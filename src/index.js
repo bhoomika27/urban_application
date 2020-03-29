@@ -6,10 +6,21 @@ import * as serviceWorker from './serviceWorker';
 import {Provider } from 'react-redux';
 import rootReducer from './reducer/index'
 import {createStore} from 'redux';
+import {BrowserRouter as Router,Route, Switch }     from 'react-router-dom';
+import DetailScreen from './components/detailsScreen'
 
 const store =createStore(rootReducer);
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}>
+    <Router>
+                    <Switch>
+
+                        <Route exact path='/' render={() => { return <App /> }} />
+                        <Route exact path='/detail' render={() => { return <DetailScreen /> }} />
+                    </Switch>   
+                    </Router>      
+                
+                </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
