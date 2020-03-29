@@ -43,8 +43,9 @@ class DetailScreen extends PureComponent {
       return (
       <div className="HistoryDiv">
           {this.state.detailArr != undefined && 
-          <div>{this.state.detailArr.neighbourhood}
-           <img src="../images/sampleImg.png" alt="Renting House" height="400" width="100%"/><br/>
+          <div className="detailConatiner">{this.state.detailArr.neighbourhood}
+           <img className="rentingImg" src="../images/sampleImg.png" alt="Renting House" height="400" width="100%"/><br/>
+           <p className='availableLbl'>This home is available</p>
            <p className='priceLbl'>{this.state.detailArr.title}</p>
            <p className='priceLbl'>{this.state.detailArr.desc}</p>
            <label className='priceLbl'>{this.state.detailArr.price}<span style={{ fontWeight:'normal',color: '#ADADAD',fontSize:12  }} >/YEAR</span></label> <br/>

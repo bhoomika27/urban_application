@@ -47,3 +47,37 @@
 .container{
     position: relative;
 }
+.filtersdiv .filterLbl{
+display: inline-block;
+border: 1.6px solid #3F3F3F;
+border-radius: 10px;
+margin-right: 2%;
+padding: 2px 6px;
+color: #ffffff;
+}
+.filtersdiv{
+    text-align: left;
+    margin-top: 15px;
+   
+}
+.filterLbl img,.filterLbl p{
+    display: inline-block;
+}
+.filterLbl p{
+    margin:0;
+    color:#ffff
+}
+.filterLbl img{
+    width: 14px;
+    margin-left: 2px;
+}
+.availableLbl{
+color:#19968C;
+}
+.detailConatiner{
+    width: 80%;
+    margin: 0 auto;
+}
+.rentingImg{
+    height: 50vh;
+}

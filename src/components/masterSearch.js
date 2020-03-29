@@ -64,6 +64,16 @@ class History extends PureComponent {
         return (
     <div className="HistoryDiv">
         {this.props.todoApp.data.property !== undefined && <MyFilteringComponent content={this.props.todoApp.data}/>}
+        <div className="filtersdiv">
+          <div className="filterLbl">
+            <img src="../images/settings-slider.svg" alt="filterIcon"/>
+            <p className="metrodecs">Filters</p>
+          </div>
+       
+        <p className="filterLbl">Home Type</p>     
+        <p className="filterLbl">Price</p>
+        <p className="filterLbl">Br</p>               
+        </div>
         <h2 className="metroLbl">Close to metro</h2>
         <p className="metrodecs">Less than 5 min walk to a metro station</p>     
         <ItemsCarousel
@@ -108,7 +118,7 @@ class History extends PureComponent {
                     })
                     }
       </ItemsCarousel>
-     
+ 
                     <button className="logoutBtn" onClick = {this.onLogout.bind(this)}>Logout</button>
             </div>
         )
