@@ -14,7 +14,8 @@ const initialState = {
     addFlag: false,
     updateCheckBox:'',
     updateTodoId:'',
-    history:[]
+    history:[],
+    isLoggedIn: false
 
   };
 function todoApp(state = initialState, action) {
@@ -30,16 +31,15 @@ function todoApp(state = initialState, action) {
         return state= setCheckboxValue(state,action.name,action.value);           
     case 'ADD_USERS_TODOS':
         return state= setUserTodos(state,action.data);          
-    case 'ADD_TASK':
-        return state= setTodoList(state,action.tasklist,action.userId);
-    case 'DELETE_TASK':
-        return state= deleteFromList(state,action.todo);
     case 'UPDATE_CHECKBOX':
         return state= updateCheckboxValue(state,action.name,action.checked,action.id);
-    case 'UPDATE_TASK':
-          return state= setUpdatedList(state,action.tasklist,action.userId, action.title,action.completed);
+      case 'LOGIN_VALUE':
+        state= {...state,
+          isLoggedIn: action.flag
+        }
+        return state
+      // break;
           
-        
     default:
       return state
   }
@@ -101,37 +101,6 @@ const setTodoList=(state,counter,userId)=>{
     todos:[...state.todos,tasklist]
   }
 return state
-}
-
-const setUpdatedList=(state,id,userId, title,completed)=>{
-  let todo=state.todos.slice(0)
-  todo.map((task,i)=>{
- if(task.id===id){
-   
-   task.completed=completed;
-   task.title=title;
-   state.history=[...state.history,task]
- }
-  })
-  state={
-    ...state,
-    todos:[...state.todos],
-    updateTodoId:id,
-  }
-return state
-}
-
-const deleteFromList=(state,todo)=>{
-
-  var tasks =state.todos.filter((task)=>{
-    return task.id!==todo.id
-  })
-
-  state={
-    ...state,
-    todos:tasks
-  }
-  return state
 }
 
 

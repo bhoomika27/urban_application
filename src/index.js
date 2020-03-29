@@ -12,9 +12,8 @@ import DetailScreen from './components/detailsScreen'
 const store =createStore(rootReducer);
 
 ReactDOM.render(<Provider store={store}>
-    <Router>
+            <Router>
                     <Switch>
-
                         <Route exact path='/' render={() => { return <App /> }} />
                         <Route exact path='/detail' render={() => { return <DetailScreen /> }} />
                     </Switch>   

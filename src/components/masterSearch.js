@@ -16,22 +16,51 @@ class History extends PureComponent {
             name:'',
             children:[],
             activeItemIndex: 0,
-           // data:[]
         }
     }
 
     componentDidMount(){
-        axios.get('./sampleData.json')
-        .then(response => {
-            // this.setState({data:response.data})
-            this.props.setUserData(response.data);
-      console.log(response)
-        })
+        if(localStorage.getItem('response') !== null){
+            var tempValue = JSON.parse(localStorage.getItem('response'))
+            this.props.setUserData(tempValue);
+        }
+        else{
+            axios.get('./sampleData.json')
+            .then(response => {
+                localStorage.setItem('response', JSON.stringify(response.data))
+                this.props.setUserData(response.data);
+                console.log(response)
+            })
+        }
+        
     }
-    // createChildren = n => range(n).map(i => <div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
+   
     changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex: activeItemIndex});
     
+    addToFav (id) {
+        console.log(id, JSON.parse(localStorage.getItem('response')), 'test');
+        var tempObj = JSON.parse(localStorage.getItem('response'));
+
+        tempObj.property.map((eachObj, index) => {
+            if(id === eachObj.id){
+                eachObj.general.liked = !eachObj.general.liked;
+            }
+        })
+
+        localStorage.setItem('response', JSON.stringify(tempObj))
+        this.props.setUserData(tempObj);
+
+        console.log(tempObj, 'test');
+    }
+
+    onLogout(){
+        localStorage.setItem('isLoggedIn', false)
+        this.props.setLoggedInValue(false)
+                // window.location.reload()
+    }
+
     render() {
+        var self = this;
         return (
     <div className="HistoryDiv">
         {this.props.todoApp.data.property !== undefined && <MyFilteringComponent content={this.props.todoApp.data}/>}
@@ -63,21 +92,30 @@ class History extends PureComponent {
       >
          {this.props.todoApp.items != undefined &&                
                 Object.values(this.props.todoApp.items).map((user, i) => {
-                    console.log(user)
                 return (
-                    <Link to={'/detail?id='+user.id} >
+                    <div className = "container">
+                        <div className = "routing">
+                        <Link to={'/detail?id='+user.id} >
                         <div style={{ height: 200, background: '#333' , color:'#fff' }} key={i}  value={user.id}>
                    
-                    <img src="../images/sampleImg.png" alt="Renting House" height="50%" width="100%"/>
-                   <label className='priceLbl'>{user.price}<span style={{ fontWeight:'normal',color: '#ADADAD',fontSize:12  }} >/YEAR</span></label> <br/>
-                    {user.address.appartment}.{user.neighbourhood}
+                            <img src="../images/sampleImg.png" alt="Renting House" height="50%" width="100%"/>
+                           
+                        <label className='priceLbl'>{user.price}<span style={{ fontWeight:'normal',color: '#ADADAD',fontSize:12  }} >/YEAR</span></label> <br/>
+                            {user.address.appartment}.{user.neighbourhood}
+                            </div>
+                            </Link>
+                        </div>
+                        <div className = "favImage">
+                        <img src={user.general.liked ? "../images/heart.svg":"../images/like1.svg"}  alt="Renting House" height="50%" width="100%" onClick={self.addToFav.bind(this,user.id)}/>
+                            </div>
+                    
                     </div>
-                    </Link>)
+                    )
                     })
                     }
       </ItemsCarousel>
      
-     
+                    <button onClick = {this.onLogout.bind(this)}>Logout</button>
             </div>
         )
     }
@@ -89,7 +127,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-       
+        setLoggedInValue: actionsTodo.setLoggedInValue,
         setUserData: actionsTodo.setUserData,
     },dispatch)
 };

@@ -12,7 +12,10 @@ body {
   margin: 0;
   background-color: #1A1A1A;
   }
-
+.loginContainer{
+  background-color: white;
+  margin-top: 10%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
