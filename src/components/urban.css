@@ -1,0 +1,20 @@
+.SearchInput{width: 60%;
+    height: 40px;
+    margin-top: 20px;
+    border: 1.6px solid #3F3F3F;
+    border-radius: 16px;
+    background-color: #232323;
+    color: #ffffff;
+}
+.metroLbl{
+    color: #ffffff;
+    text-align: left;
+}
+.metrodecs{
+    color:#ADADAD;
+    text-align: left;
+}
+.priceLbl{
+    color: white;
+    font-weight: bold;
+}

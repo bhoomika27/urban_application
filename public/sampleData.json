@@ -1,0 +1,165 @@
+{
+    "property": [
+      {
+        "id": 1,      
+        "neighbourhood": "Dubai Marina",
+        "title":"stylish 1BR appartment",
+        "description":"this is one bedroom",
+        "price": "900,000AED",
+        "address": {
+          "street": "Kulas Light",
+          "suite": "Apt. 556",
+          "appartment": "Princess Tower",
+          "zipcode": "112234",
+          "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+          }
+        },
+        "general":{
+            "bedroom":1,
+            "bathroom":2,
+            "parking":1,
+            "size": "960",
+            "furnished":"true",
+            "liked":false
+        },
+        "amenities":{
+            "close_to_tram":true,
+            "close_to_metro":true,
+            "close_to_beach":true,
+            "close_to_mall":true
+
+        }
+      },
+      {
+        "id": 2,      
+        "neighbourhood": "Downtown",
+        "title":"stylish 1BR appartment",
+        "description":"this is one bedroom",
+        "price": "180,000AED",
+        "address": {
+          "street": "Kulas Light",
+          "suite": "Apt. 556",
+          "appartment": "Burj Residence",
+          "zipcode": "112234",
+          "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+          }
+        },
+        "general":{
+            "bedroom":1,
+            "bathroom":2,
+            "parking":1,
+            "size": "960",
+            "furnished":"true",
+            "liked":false
+        },
+        "amenities":{
+            "close_to_tram":true,
+            "close_to_metro":true,
+            "close_to_beach":true,
+            "close_to_mall":true
+
+        }
+      },
+      {
+        "id": 3,      
+        "neighbourhood": "Bur Dubai",
+        "title":"stylish 1BR appartment",
+        "description":"this is one bedroom",
+        "price": "120,000AED",
+        "address": {
+          "street": "Kulas Light",
+          "suite": "Apt. 556",
+          "appartment": "Golden Sands",
+          "zipcode": "112234",
+          "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+          }
+        },
+        "general":{
+            "bedroom":1,
+            "bathroom":2,
+            "parking":1,
+            "size": "960",
+            "furnished":"true",
+            "liked":false
+        },
+        "amenities":{
+            "close_to_tram":true,
+            "close_to_metro":true,
+            "close_to_beach":true,
+            "close_to_mall":true
+
+        }
+      },
+      {
+        "id": 4,      
+        "neighbourhood": "Dubai Marina",
+        "title":"stylish 1BR appartment",
+        "description":"this is one bedroom",
+        "price": "240,000AED",
+        "address": {
+          "street": "Kulas Light",
+          "suite": "Apt. 556",
+          "appartment": "Sulafa Tower",
+          "zipcode": "112234",
+          "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+          }
+        },
+        "general":{
+            "bedroom":1,
+            "bathroom":2,
+            "parking":1,
+            "size": "960",
+            "furnished":"true",
+            "liked":false
+        },
+        "amenities":{
+            "close_to_tram":true,
+            "close_to_metro":true,
+            "close_to_beach":true,
+            "close_to_mall":true
+
+        }
+      },
+      {
+        "id": 5,      
+        "neighbourhood": "Jumeirah Beach Residence",
+        "title":"stylish 1BR appartment",
+        "description":"this is one bedroom",
+        "price":"500,000AED",
+        "address": {
+          "street": "Kulas Light",
+          "suite": "Apt. 556",
+          "appartment": "Ramada Residence",
+          "zipcode": "112234",
+          "geo": {
+            "lat": "-37.3159",
+            "lng": "81.1496"
+          }
+        },
+        "general":{
+            "bedroom":1,
+            "bathroom":2,
+            "parking":1,
+            "size": "960",
+            "furnished":"true",
+            "liked":false
+        },
+        "amenities":{
+            "close_to_tram":true,
+            "close_to_metro":true,
+            "close_to_beach":true,
+            "close_to_mall":true
+
+        }
+      }
+    ]
+
+  }
