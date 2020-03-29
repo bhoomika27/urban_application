@@ -18,14 +18,12 @@ class App extends Component{
       return (
         <div className="App">
               <History/>
-              {/* <Login/> */}
         </div>
       );
     }
     else{
       return (
         <div className="App">
-              {/* <History/> */}
               <Login/>
         </div>
       );
