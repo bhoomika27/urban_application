@@ -12,14 +12,14 @@ import DetailScreen from './components/detailsScreen'
 const store =createStore(rootReducer);
 
 ReactDOM.render(<Provider store={store}>
-            <Router>
+               <Router>
                     <Switch>
-                        <Route exact path='/' render={() => { return <App /> }} />
+                        <Route exact path='/' render={() => { return <App/> }} />
                         <Route exact path='/detail' render={() => { return <DetailScreen /> }} />
                     </Switch>   
-                    </Router>      
+                </Router>      
                 
-                </Provider>, document.getElementById('root'));
+            </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

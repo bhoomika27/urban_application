@@ -41,16 +41,8 @@ class MyFilteringComponent extends PureComponent {
       return (
         <div>
           <form>
-            <input type="text" placeholder="Search Neighbourhood,building...." Class="SearchInput" onChange={this.filterList}/>
+            <input type="text" placeholder="Search Neighbourhood,building...." className="SearchInput" onChange={this.filterList}/>
           </form>
-          <div>
-            {this.props.todoApp.items!==undefined &&
-                this.props.todoApp.items.map(function(item) {
-
-                    return <div key={item}></div>
-                })
-            }
-            </div>
         </div>
       );
     }

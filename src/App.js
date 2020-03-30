@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-// import AddList from './components/addList';
-import History from './components/masterSearch'
+import MasterSearch from './components/masterSearch'
 import Login from './components/login'
-
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-
 import './App.css'
 
 class App extends Component{
@@ -17,7 +13,7 @@ class App extends Component{
     if(this.props.todoApp.isLoggedIn){
       return (
         <div className="App">
-              <History/>
+              <MasterSearch/>
         </div>
       );
     }

@@ -15,7 +15,6 @@ class Login extends PureComponent {
       username:'',
       password:'',
       data: [],
-      isLoggedIn: false
       }
      }
 
@@ -24,8 +23,7 @@ class Login extends PureComponent {
         .then(response => {
             this.setState({data:response.data})
             localStorage.setItem('userlist', JSON.stringify(response.data))
-            // this.props.setUserData(response.data);
-            // console.log(response)
+            console.log(response)
         })
      }
 
@@ -33,8 +31,7 @@ class Login extends PureComponent {
          this.state.data.map((eachUser, index) => {
              if(this.state.username === eachUser.username && this.state.password === eachUser.password){
                 localStorage.setItem('isLoggedIn', true)
-                this.setState({isLoggednIn: true})
-        this.props.setLoggedInValue(true)
+                this.props.setLoggedInValue(true,eachUser.username)
 
 
              }

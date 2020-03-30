@@ -8,7 +8,7 @@ import MyFilteringComponent from './filterComponent';
 import './urban.css'
 import { Link } from "react-router-dom";
 
-class History extends PureComponent {
+class MasterSearch extends PureComponent {
     constructor(props) {
         super(props)
 
@@ -22,6 +22,7 @@ class History extends PureComponent {
     componentDidMount(){
         if(localStorage.getItem('response') !== null){
             var tempValue = JSON.parse(localStorage.getItem('response'))
+            console.log(tempValue)
             this.props.setUserData(tempValue);
         }
         else{
@@ -29,7 +30,6 @@ class History extends PureComponent {
             .then(response => {
                 localStorage.setItem('response', JSON.stringify(response.data))
                 this.props.setUserData(response.data);
-                console.log(response)
             })
         }
         
@@ -37,18 +37,18 @@ class History extends PureComponent {
    
     changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex: activeItemIndex});
     
-    addToFav (id) {
-        console.log(id, JSON.parse(localStorage.getItem('response')), 'test');
-        var tempObj = JSON.parse(localStorage.getItem('response'));
+    addToFav(id) { 
 
+        var tempObj = JSON.parse(localStorage.getItem('response'));
         tempObj.property.map((eachObj, index) => {
             if(id === eachObj.id){
                 eachObj.general.liked = !eachObj.general.liked;
             }
         })
-
+        localStorage.setItem('favData', JSON.stringify(this.props.todoApp.username,tempObj))
         localStorage.setItem('response', JSON.stringify(tempObj))
         this.props.setUserData(tempObj);
+       // this.props.setFavorites(tempObj);
 
         console.log(tempObj, 'test');
     }
@@ -99,7 +99,7 @@ class History extends PureComponent {
          {this.props.todoApp.items != undefined &&                
                 Object.values(this.props.todoApp.items).map((user, i) => {
                 return (
-                    <div className = "container">
+                    <div key={user.id} className = "container">
                         <div className = "routing">
                         <Link to={'/detail?id='+user.id} >
                         <div className="crouselElement" key={i}  value={user.id}>
@@ -133,7 +133,8 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         setLoggedInValue: actionsTodo.setLoggedInValue,
         setUserData: actionsTodo.setUserData,
+        // setFavorites:actionsTodo.setFavorites,
     },dispatch)
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(History)
+export default connect(mapStateToProps,mapDispatchToProps)(MasterSearch)

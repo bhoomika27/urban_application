@@ -1,21 +1,13 @@
 import * as actionTypes from '../actions/actionsTodo'
 
 const initialState = {
-    tasklist:[],
     data:[],
     items:[],
-    todos:'',
     id:0,
-    title:'',
-    desc:'',
-    status:"default",
-    edit:false,
-    taskStatus:false,
-    addFlag: false,
-    updateCheckBox:'',
-    updateTodoId:'',
+    username:'',
     history:[],
-    isLoggedIn: false
+    isLoggedIn: false,
+    favArr:[]
 
   };
 function todoApp(state = initialState, action) {
@@ -26,16 +18,13 @@ function todoApp(state = initialState, action) {
     case 'SET_FILTERED_ITEMS':
       return state= setFilteredItems(state,action.items);  
     case 'ADD_FIELD_VALUE':
-        return state= setFieldsValue(state,action.name,action.value);
-    case 'ADD_CHECKBOX_VALUE':
-        return state= setCheckboxValue(state,action.name,action.value);           
-    case 'ADD_USERS_TODOS':
-        return state= setUserTodos(state,action.data);          
-    case 'UPDATE_CHECKBOX':
-        return state= updateCheckboxValue(state,action.name,action.checked,action.id);
-      case 'LOGIN_VALUE':
+        return state= setFieldsValue(state,action.name,action.value);  
+    // case 'SET_FAVORITES':
+    //     return state= setFavoritesArray(state,action.favArr);        
+    case 'LOGIN_VALUE':
         state= {...state,
-          isLoggedIn: action.flag
+          isLoggedIn: action.flag,
+          username:action.username
         }
         return state
       // break;
@@ -53,22 +42,6 @@ const setFieldsValue=(state,name,value)=>{
   }
   return state
 }
-const setCheckboxValue=(state,name,value)=>{
- 
-  state={
-    ...state,
-    [name]:value
-  }
-  return state
-}
-const updateCheckboxValue=(state,name,checked,id)=>{
-
-  state={
-    ...state,
-    [name]:checked
-  }
-  return state
-}
 const setUserData=(state,data)=>{
   state={
     ...state,
@@ -82,26 +55,21 @@ const setFilteredItems=(state,items)=>{
     ...state,
     items:items
   }
-  console.log(state)
+ 
   return state
 }
-const setUserTodos=(state,data)=>{
-  state={
-    ...state,
-    todos:data
-  }
-  return state
-}
+// const setFavoritesArray=(state,favArr)=>{
 
+//   const favArr={username:state.username}
+//   favArr[state.username]=[favArr];
+//   state={
+//     ...state,
+//     items:items
+//   }
 
-const setTodoList=(state,counter,userId)=>{
-  const tasklist = {userId:userId, id:counter,title: state.title,completed:state.taskStatus};
-  state={
-    ...state,
-    todos:[...state.todos,tasklist]
-  }
-return state
-}
+//   return state
+// }
+
 
 
 export default todoApp
