@@ -81,3 +81,12 @@ color:#19968C;
 .rentingImg{
     height: 50vh;
 }
+.houseIcon{
+    height: 20px;
+    width: 20px;
+}
+.bedHalK span{
+    background: #3F3F3F;
+    padding: 6px;
+    border-radius: 50px;
+}

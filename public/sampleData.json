@@ -49,7 +49,7 @@
           }
         },
         "general":{
-            "bedroom":1,
+            "bedroom":2,
             "bathroom":2,
             "parking":1,
             "size": "960",
@@ -81,9 +81,9 @@
           }
         },
         "general":{
-            "bedroom":1,
+            "bedroom":3,
             "bathroom":2,
-            "parking":1,
+            "parking":2,
             "size": "960",
             "furnished":"true",
             "liked":false
@@ -114,7 +114,7 @@
         },
         "general":{
             "bedroom":1,
-            "bathroom":2,
+            "bathroom":1,
             "parking":1,
             "size": "960",
             "furnished":"true",
@@ -145,8 +145,8 @@
           }
         },
         "general":{
-            "bedroom":1,
-            "bathroom":2,
+            "bedroom":2,
+            "bathroom":3,
             "parking":1,
             "size": "960",
             "furnished":"true",

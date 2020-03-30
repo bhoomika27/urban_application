@@ -98,12 +98,27 @@ class MasterSearch extends PureComponent {
       >
          {this.props.todoApp.items != undefined &&                
                 Object.values(this.props.todoApp.items).map((user, i) => {
+                    console.log(user)
                 return (
                     <div key={user.id} className = "container">
                         <div className = "routing">
                         <Link to={'/detail?id='+user.id} >
-                        <div className="crouselElement" key={i}  value={user.id}>
-                        <img className="houseImg" src="../images/sampleImg.png" alt="Renting House" height="50%" width="100%"/>                           
+                        <div className="crouselElement" key={user.id}>
+                        <img className="houseImg" src="../images/sampleImg.png" alt="Renting House" height="50%" width="100%"/>
+                        <div className="bedHalK">
+                            <span>
+                            <img className="houseIcon" src="../images/hotel-single-bed-1.svg" alt="Renting House" height="50%" width="100%"/>
+                            <label>{user.general.bedroom}</label>
+                            </span>
+                            <span>
+                            <img className="houseIcon" src="../images/hotel-single-bed-1.svg" alt="Renting House" height="50%" width="100%"/>
+                            <label>{user.general.bathroom}</label>
+                            </span>
+                            <span>
+                            <img className="houseIcon" src="../images/hotel-single-bed-1.svg" alt="Renting House" height="50%" width="100%"/>
+                            <label>{user.general.parking}</label>
+                            </span>
+                            </div>                           
                         <label className='priceLbl'>{user.price}<span style={{ fontWeight:'normal',color: '#ADADAD',fontSize:12  }} >/YEAR</span></label> <br/>
                             {user.address.appartment}.{user.neighbourhood}
                             </div>
