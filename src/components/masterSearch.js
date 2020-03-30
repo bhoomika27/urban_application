@@ -20,15 +20,15 @@ class MasterSearch extends PureComponent {
     }
 
     componentDidMount(){
-        if(localStorage.getItem('response') !== null){
-            var tempValue = JSON.parse(localStorage.getItem('response'))
+        if(localStorage.getItem('response' + this.props.todoApp.username) !== null){
+            var tempValue = JSON.parse(localStorage.getItem('response' + this.props.todoApp.username))
             console.log(tempValue)
             this.props.setUserData(tempValue);
         }
         else{
             axios.get('./sampleData.json')
             .then(response => {
-                localStorage.setItem('response', JSON.stringify(response.data))
+                localStorage.setItem('response' + this.props.todoApp.username, JSON.stringify(response.data))
                 this.props.setUserData(response.data);
             })
         }
@@ -39,14 +39,14 @@ class MasterSearch extends PureComponent {
     
     addToFav(id) { 
 
-        var tempObj = JSON.parse(localStorage.getItem('response'));
+        var tempObj = JSON.parse(localStorage.getItem('response' + this.props.todoApp.username));
         tempObj.property.map((eachObj, index) => {
             if(id === eachObj.id){
                 eachObj.general.liked = !eachObj.general.liked;
             }
         })
         localStorage.setItem('favData', JSON.stringify(this.props.todoApp.username,tempObj))
-        localStorage.setItem('response', JSON.stringify(tempObj))
+        localStorage.setItem('response' + this.props.todoApp.username, JSON.stringify(tempObj))
         this.props.setUserData(tempObj);
        // this.props.setFavorites(tempObj);
 
